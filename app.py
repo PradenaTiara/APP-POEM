@@ -10,10 +10,11 @@ vectorizer = joblib.load("tfidf_vectorizer.pkl")
 # Preprocessing
 def clean_text(text):
     text = text.lower()
-    text = re.sub(r"http\S+|@\w+|#\w+", "", text)
-    text = re.sub(r"[^\w\s]", "", text)
-    text = re.sub(r"\d+", "", text)
-    text = re.sub(r"\s+", " ", text)
+    text = re.sub(r"http\S+", "", text)
+    text = re.sub(r"@\w+", "", text)
+    text = re.sub(r"#\w+", "", text)
+    text = re.sub(r"[^\w\s]", "", text)  # hapus tanda baca
+    text = re.sub(r"\d+", "", text)      # hapus angka
     return text.strip()
 
 # Konversi gambar logo ke base64
